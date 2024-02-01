@@ -1,4 +1,4 @@
 
 
 
-based on: https://github.com/eugene-doobu/custom-spine-exporter.git
+based on: https://github.com/vhristov/spine-exporter
