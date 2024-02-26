@@ -45,7 +45,6 @@ spine_args=""
 spine_args="${spine_args} -u $SPINE_VERSION"
 spine_args="${spine_args} ${@:2}"
 
-pack_file="./packsetting.pack.json"
 while IFS= read -r -d $'\0' file; do
 	setting_file="${file%.*}.export.json"
 
@@ -53,15 +52,6 @@ while IFS= read -r -d $'\0' file; do
 		setting_file="${EXPORT_SETTINGS}"
 	fi
 	spine_args=$"${spine_args} -i $file -o `dirname ${EXPORT_PATH}/$file` -e ${setting_file}"
-
-	directory=$(dirname "$file")
-	imgDirectory="${directory}/image"
-
-	if [ ! -d "${imgDirectory}" ]; then
-		imgDirectory="${directory}/images"
-	fi
-
-	spine_args=$"${spine_args} -i $imgDirectory -o `dirname ${EXPORT_PATH}/$file` --pack ${pack_file}"
 done < <(find "${GRAPHICS_PATH}" -iname \*.spine -type f -print0)
 
 "$SPINE_EXE" $spine_args
