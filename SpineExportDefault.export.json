@@ -16,7 +16,7 @@
 	"maxHeight": 2048,
 	"pot": true,
 	"multipleOfFour": false,
-	"square": true,
+	"square": false,
 	"outputFormat": "png",
 	"jpegQuality": 0.9,
 	"premultiplyAlpha": true,
